@@ -1,7 +1,6 @@
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
-import external from 'rollup-plugin-exclude-dependencies-from-bundle';
 import { terser } from 'rollup-plugin-terser';
 
 const packageJson = require('./package.json');
@@ -26,11 +25,5 @@ export default {
       sourcemapPathTransform,
     },
   ],
-  plugins: [
-    external({ dependencies: true, peerDependencies: true }),
-    resolve(),
-    commonjs(),
-    typescript({ tsconfig: './tsconfig.json' }),
-    terser(),
-  ],
+  plugins: [resolve(), commonjs(), typescript({ tsconfig: './tsconfig.json' }), terser()],
 };

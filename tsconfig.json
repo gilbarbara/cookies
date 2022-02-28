@@ -1,8 +1,12 @@
 {
   "extends": "@gilbarbara/tsconfig",
   "compilerOptions": {
-    "downlevelIteration": true,
-    "outDir": "./lib",
+    "baseUrl": "./",
+    "lib": ["DOM","ES2020"],
+    "outDir": "",
+    "paths": {
+      "*": ["src/*"]
+    },
     "skipLibCheck": true,
     "target": "es5"
   },
